@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        .navbar-burger {
+            margin-left: 0 !important;
+            margin-right: auto;
+        }
+
+        .swiper {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .experience-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #363636;
+            margin-bottom: 5px;
+        }
+
+        .experience-subtitle {
+            font-size: 1rem;
+            color: #7a7a7a;
+            margin-bottom: 10px;
+        }
+
+        .experience-text {
+            font-size: 0.9rem;
+            color: #4a4a4a;
+            text-align: center;
+        }
+
+        .icons-swiper {
+            width: 100%;
+            padding: 40px 0;
+            background: transparent;
+        }
+
+        .icons-swiper .swiper-slide {
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        .icons-swiper img {
+            height: 60px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            object-fit: contain;
+        }
+
+        .icons-swiper img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar for Desktop and Mobile -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-start">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#about-me">Sobre mim</a>
+                <a class="navbar-item" href="habilidades.html">Habilidades</a>
+                <a class="navbar-item" href="projetos.html">Projetos</a>
+                <a class="navbar-item" href="contatos.html">Contato</a>
+            </div>
+        </div>
+        <div class="navbar-end">
+            <h3 class="navbar-item is-size-5">Olá! Me chamo Paulo Matheus!</h3>
+        </div>
+    </nav>
+        
+    <!-- Main Content -->
+    <main class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8 has-text-centered">
+                    <h1 class="title is-1">Bem-vindo ao meu Portfolio!</h1>
+                    <p class="subtitle is-4">Sinta-se à vontade para explorar e conhecer mais sobre mim e meus projetos de software.</p>
+                </div>
+            </div>
+            
+            <hr>
+
+            <!-- About me -->
+            <div id="about-me" class="columns is-vcentered">
+                <div class="column is-6">
+                    <h2 class="title is-3">Sobre Mim</h2>
+                    <p class="content is-medium">
+                        Meu nome é Paulo Matheus, sou formado em Técnico em Tecnologia da Informação e 
+                        atualmente estou cursando Engenharia de Software.
+                        Possuo certificações relevantes na área de tecnologia, incluindo o 
+                        <a href="https://www.credly.com/badges/a1b6f5f9-e292-4f75-bf43-15e690830a68/public_url"><b>Google UX Design Professional</b></a>,
+                        <a href="https://www.credly.com/badges/0e967c43-b404-4952-95d1-c3b841a18224/public_url"><b>PCEP – Certified Entry-Level Python Programmer</b></a> e 
+                        <a href="https://www.coursera.org/account/accomplishments/specialization/4TI3OE65DI0I"><b>IBM IT Support Professional Certificate</b></a>
+                    </p>
+                </div>
+                <div class="column is-6">
+                    <figure class="image is-16by9">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Sobre Mim" style="border-radius: 8px; object-fit: cover;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Work Experience -->
+        <div class="container" style="margin-top: 100px;">
+            <h2 class="title is-3 has-text-centered">Aonde eu trabalhei</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://esginside.com.br/wp-content/uploads/2025/01/Simpress-economia-circular.webp" alt="Job 1">
+                        <h3 class="experience-title">Técnico em Eletrônica</h3>
+                        <h4 class="experience-subtitle">Simpress, an Hp Company</h4>
+                        <p class="experience-text">
+                            Manutenção e revisão de impressoras. Customização de desktops, configuração de pré-bios de impressoras. 
+                            Triagem e mapeamento de notebooks. configuração de BIOS. Assistência técnica em impressoras 
+                            de baixo e médio porte.
+                        </p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://albazzaztariq.github.io/UniLogic/logo2_nobg.png" alt="Job 2">
+                        <h3 class="experience-title">Programador C</h3>
+                        <h4 class="experience-subtitle">UniLogic FOSS Project</h4>
+                        <p class="experience-text">
+                            Contribuição para uma equipe de desenvolvimento de software open-source, 
+                            focado em criar uma linguagem de programação de alto e baixo nível. 
+                            Auxiliando na criação de modelos UML e realizando testes unitários, de integração
+                            e testes de caixa-preta para garantir a qualidade do software.
+                        </p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://verumit.com.br/img/blog/analista-de-suporte-ou-terceirizar-a-ti.jpg" alt="Job 3">
+                        <h3 class="experience-title">Analista de Suporte</h3>
+                        <h4 class="experience-subtitle">Foundever</h4>
+                        <p class="experience-text">
+                            Atuação focada em abertura e gestão de chamados técnicos, controle de tickets e SLAs, e execução de
+                            troubleshooting avançado em software e hardware.
+                            Experiência com documentação técnica em Markdown, OneNote e Salesforce, além de escalação de incidentes
+                            críticos (N3) e suporte colaborativo entre equipes.
+                        </p>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <!-- My favorite languages -->
+        <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+            <h2 class="title is-4 has-text-centered mb-5">Minhas Linguagens e Ferramentas</h2>
+            <div class="swiper icons-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bulma/bulma-plain.svg" alt="Bulma">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://www.svgrepo.com/show/473818/unity.svg" alt="Unity">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer and links -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Portfolio</strong> by <a href="https://github.com/Peixe2b">Paulo Matheus.</a>
+                The source code is available at <a href="https://github.com/Peixe2b/Maju_Portfolio">GitHub</a>.
+            </p>
+            <p>
+                <i class="fas fa-envelope"></i> <a href="mailto:paulo.matheusserrasamp@gmail.com">paulo.matheusserrasamp@gmail.com</a> | 
+                <i class="fas fa-phone"></i> <a href="tel:+55999991111">+55 96143-1125</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach( el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+
+            const swiper = new Swiper(".mySwiper", {
+                    effect: "coverflow",
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: "auto",
+                    spaceBetween: 30, // Increased space between slides
+                    coverflowEffect: {
+                        rotate: 50,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                loop: true,
+            });
+
+            // Icons Swiper (Infinite Scroll)
+            const iconsSwiper = new Swiper(".icons-swiper", {
+                slidesPerView: 4,
+                spaceBetween: 50,
+                loop: true,
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                },
+                speed: 3000, // Ajusta a velocidade do scroll contínuo
+                allowTouchMove: false, // Opcional: impede arrastar para não quebrar o fluxo
+                breakpoints: {
+                    640: {
+                        slidesPerView: 5,
+                    },
+                    1024: {
+                        slidesPerView: 7,
+                    },
+                }
+            });
+        });
+    </script>
+</body>
+</html>
