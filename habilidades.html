@@ -5,10 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .navbar-burger {
             margin-left: 0 !important;
             margin-right: auto;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item .skill-name {
+            width: 120px;
+            font-weight: bold;
+        }
+
+        .skill-item .progress {
+            flex-grow: 1;
+            margin-bottom: 0;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 250px;
+            width: 250px;
         }
     </style>
 </head>
@@ -26,14 +49,101 @@
             <div class="navbar-start">
                 <a class="navbar-item" href="index.html#about-me">Sobre mim</a>
                 <a class="navbar-item" href="habilidades.html">Habilidades</a>
-                <a class="navbar-item" href="projetos.html">Projetos</a>
-                <a class="navbar-item" href="contatos.html">Contato</a>
             </div>
         </div>
         <div class="navbar-end">
             <h3 class="navbar-item is-size-5">Olá! Me chamo Paulo Matheus!</h3>
         </div>
     </nav>
+
+    <!-- Conjunto de todas as minhas habilidades -->
+    <main class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">Minhas Habilidades</h1>
+
+            <!-- Desenvolvimento -->
+            <div class="box">
+                <h2 class="title is-4">Desenvolvimento</h2>
+                <div class="columns is-vcentered">
+                    <div class="column is-7">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <progress class="progress is-primary" value="80" max="100">80%</progress>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">C</span>
+                            <progress class="progress is-primary" value="70" max="100">70%</progress>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">C#</span>
+                            <progress class="progress is-primary" value="70" max="100">70%</progress>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <progress class="progress is-primary" value="50" max="100">50%</progress>
+                        </div>
+                    </div>
+                    <div class="column is-5 has-text-centered">
+                        <div class="chart-container" style="margin: auto;">
+                            <canvas id="devChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manutenção -->
+            <div class="box">
+                <h2 class="title is-4">Manutenção e Suporte</h2>
+                <div class="columns is-vcentered">
+                    <div class="column is-7">
+                        <div class="skill-item">
+                            <span class="skill-name">Hardware</span>
+                            <progress class="progress is-info" value="90" max="100">90%</progress>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Redes</span>
+                            <progress class="progress is-info" value="60" max="100">60%</progress>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Troubleshooting</span>
+                            <progress class="progress is-info" value="100" max="100">100%</progress>
+                        </div>
+                    </div>
+                    <div class="column is-5 has-text-centered">
+                        <div class="chart-container" style="margin: auto;">
+                            <canvas id="maintenanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UX Design -->
+            <div class="box">
+                <h2 class="title is-4">UX Design</h2>
+                <div class="columns is-vcentered">
+                    <div class="column is-7">
+                        <div class="skill-item">
+                            <span class="skill-name">Figma</span>
+                            <progress class="progress is-success" value="60" max="100">60%</progress>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Pesquisa</span>
+                            <progress class="progress is-success" value="90" max="100">90%</progress>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Prototipagem</span>
+                            <progress class="progress is-success" value="85" max="100">85%</progress>
+                        </div>
+                    </div>
+                    <div class="column is-5 has-text-centered">
+                        <div class="chart-container" style="margin: auto;">
+                            <canvas id="uxChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -49,6 +159,51 @@
                 });
             }
         });
+
+        const createPieChart = (elementId, labels, data, backgroundColor) => {
+            const ctx = document.getElementById(elementId).getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: backgroundColor,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+        };
+
+        createPieChart(
+            'devChart',
+            ['Python', 'C', 'C#', 'Java'],
+            [8, 7, 7, 5],
+            ['#FFDDC1', '#FFD1A3', '#FFC585', '#FFB967']
+        );
+
+        createPieChart(
+            'maintenanceChart',
+            ['Hardware', 'Redes', 'Troubleshooting'],
+            [9, 6, 10],
+            ['#D1E7FF', '#A3D1FF', '#85C5FF']
+        );
+
+        createPieChart(
+            'uxChart',
+            ['Figma', 'Pesquisa', 'Prototipagem'],
+            [6, 9, 8.5],
+            ['#D4EDDA', '#A2D9B3', '#85C99C']
+        );
     </script>
 </body>
 </html>
